@@ -8,17 +8,18 @@
   <meta name="description" content="Personal academic-style website of Ajay Kumar Verma">
   <style>
     :root {
-      --bg: #f6f8fb;
+      --bg: #f7f9fc;
       --surface: #ffffff;
-      --surface-2: #fdfefe;
+      --surface-soft: #fbfcfe;
       --text: #1f2937;
-      --muted: #6b7280;
-      --line: #e5e7eb;
-      --accent: #1d4ed8;
+      --muted: #667085;
+      --line: #e6eaf0;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
       --accent-soft: #eff6ff;
       --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
       --radius: 18px;
-      --max-width: 1120px;
+      --max: 1180px;
     }
 
     * {
@@ -32,13 +33,13 @@
     body {
       margin: 0;
       font-family: Inter, Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
       color: var(--text);
-      background: linear-gradient(180deg, #f8fbff 0%, #f6f8fb 100%);
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
     a {
-      color: var(--accent);
+      color: var(--accent-dark);
       text-decoration: none;
     }
 
@@ -47,51 +48,51 @@
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
     }
 
-    .wrap {
-      width: min(var(--max-width), calc(100% - 32px));
+    .container {
+      width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.9);
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(229, 231, 235, 0.9);
+      border-bottom: 1px solid rgba(230, 234, 240, 0.95);
     }
 
     .topbar-inner {
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      min-height: 68px;
     }
 
     .brand {
-      font-size: 1.05rem;
       font-weight: 700;
-      color: var(--text);
+      font-size: 1.05rem;
+      color: #0f172a;
       white-space: nowrap;
     }
 
     .nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 8px;
     }
 
     .nav a {
       color: #334155;
       font-size: 0.96rem;
       font-weight: 600;
-      padding: 8px 10px;
-      border-radius: 10px;
+      padding: 9px 12px;
+      border-radius: 999px;
     }
 
     .nav a:hover {
@@ -99,80 +100,76 @@
       text-decoration: none;
     }
 
-    .hero {
-      padding: 42px 0 24px;
+    .page {
+      padding: 36px 0 46px;
     }
 
-    .hero-grid {
+    .layout {
       display: grid;
-      grid-template-columns: 330px minmax(0, 1fr);
+      grid-template-columns: 320px minmax(0, 1fr);
       gap: 28px;
       align-items: start;
     }
 
     .card {
       background: var(--surface);
-      border: 1px solid rgba(229, 231, 235, 0.85);
+      border: 1px solid rgba(230, 234, 240, 0.9);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
 
-    .profile-card {
-      padding: 26px;
+    .sidebar {
       position: sticky;
-      top: 92px;
+      top: 96px;
+      padding: 28px 24px;
+      text-align: center;
     }
 
     .avatar {
-      width: 168px;
-      height: 168px;
+      width: 172px;
+      height: 172px;
       margin: 0 auto 18px;
       border-radius: 50%;
       object-fit: cover;
-      border: 5px solid #fff;
-      box-shadow: 0 10px 24px rgba(30, 41, 59, 0.15);
-      background: #e5e7eb;
+      background: #dfe7f1;
+      border: 4px solid #fff;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.14);
     }
 
     .name {
       margin: 0;
-      text-align: center;
       font-size: 2rem;
       line-height: 1.15;
+      color: #111827;
     }
 
     .role {
-      margin: 10px 0 0;
-      text-align: center;
-      font-size: 1.02rem;
-      color: #0f172a;
+      margin: 10px 0 4px;
       font-weight: 700;
+      color: #0f172a;
     }
 
-    .subtitle {
-      margin: 8px 0 0;
-      text-align: center;
+    .affiliation {
+      margin: 0;
       color: var(--muted);
-      font-size: 0.98rem;
+      font-size: 0.96rem;
     }
 
     .socials {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      margin-top: 18px;
+      display: grid;
       gap: 10px;
-      margin: 18px 0 0;
     }
 
-    .socials a,
+    .social-link,
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 40px;
+      min-height: 42px;
       padding: 0 14px;
+      border: 1px solid #dbe4f0;
       border-radius: 999px;
-      border: 1px solid #dbe3f0;
       background: #fff;
       color: #1e3a8a;
       font-weight: 600;
@@ -180,34 +177,51 @@
       text-decoration: none;
     }
 
-    .socials a:hover,
+    .social-link:hover,
     .button:hover {
       background: var(--accent-soft);
       text-decoration: none;
     }
 
-    .hero-main {
-      padding: 28px;
+    .main {
+      display: grid;
+      gap: 22px;
     }
 
-    .hero-main h2 {
-      margin: 0 0 10px;
-      font-size: 1.15rem;
-      color: #1e3a8a;
-      letter-spacing: 0.02em;
+    .section {
+      padding: 26px 28px;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+      line-height: 1.2;
+      color: #0f172a;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
       text-transform: uppercase;
     }
 
-    .hero-main p {
-      margin: 0 0 14px;
+    .lead {
       font-size: 1.04rem;
+      color: #334155;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     .button.primary {
@@ -217,32 +231,13 @@
     }
 
     .button.primary:hover {
-      background: #1e40af;
+      background: var(--accent-dark);
     }
 
-    .sections {
+    .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 22px;
-      padding-bottom: 40px;
-    }
-
-    .section-card {
-      padding: 24px 26px;
-    }
-
-    .section-card.full {
-      grid-column: 1 / -1;
-    }
-
-    .section-title {
-      margin: 0 0 14px;
-      font-size: 1.3rem;
-      color: #0f172a;
-    }
-
-    .muted {
-      color: var(--muted);
     }
 
     .list {
@@ -267,6 +262,7 @@
     .timeline-item h4 {
       margin: 0 0 4px;
       font-size: 1rem;
+      color: #111827;
     }
 
     .timeline-item p {
@@ -274,79 +270,80 @@
       color: var(--muted);
     }
 
-    .project-grid {
+    .publication-list,
+    .project-list {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
     }
 
+    .publication,
     .project {
+      padding: 18px;
       border: 1px solid var(--line);
       border-radius: 16px;
-      padding: 18px;
-      background: var(--surface-2);
+      background: var(--surface-soft);
     }
 
+    .publication h4,
     .project h4 {
       margin: 0 0 8px;
       font-size: 1.02rem;
+      color: #0f172a;
     }
 
-    .tags {
+    .meta {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 12px;
+      margin: 10px 0 0;
     }
 
-    .tag {
+    .pill {
       display: inline-block;
       padding: 6px 10px;
       border-radius: 999px;
-      background: #f1f5f9;
-      color: #334155;
-      font-size: 0.86rem;
-      font-weight: 600;
+      background: #eef2ff;
+      color: #3730a3;
+      font-size: 0.82rem;
+      font-weight: 700;
     }
 
-    .contact-list {
+    .muted {
+      color: var(--muted);
+    }
+
+    .contact-grid {
       display: grid;
       gap: 10px;
     }
 
     .footer {
-      padding: 24px 0 48px;
-      color: var(--muted);
+      padding: 10px 0 40px;
       text-align: center;
-      font-size: 0.95rem;
+      color: var(--muted);
+      font-size: 0.94rem;
     }
 
-    @media (max-width: 940px) {
-      .hero-grid,
-      .sections,
-      .project-grid {
+    @media (max-width: 980px) {
+      .layout,
+      .grid-2 {
         grid-template-columns: 1fr;
       }
 
-      .profile-card {
+      .sidebar {
         position: static;
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 680px) {
       .topbar-inner {
+        flex-direction: column;
         align-items: flex-start;
         padding: 10px 0;
-        flex-direction: column;
       }
 
-      .nav {
-        gap: 8px;
-      }
-
-      .profile-card,
-      .hero-main,
-      .section-card {
+      .section,
+      .sidebar {
         padding: 20px;
       }
 
@@ -358,13 +355,14 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="wrap topbar-inner">
+    <div class="container topbar-inner">
       <div class="brand">Ajay Kumar Verma</div>
       <nav class="nav" aria-label="Primary">
-        <a href="#about">About</a>
+        <a href="#bio">Bio</a>
         <a href="#interests">Interests</a>
         <a href="#education">Education</a>
         <a href="#news">News</a>
+        <a href="#featured-work">Featured Work</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
         <a href="#cv">CV</a>
@@ -372,153 +370,190 @@
     </div>
   </header>
 
-  <main class="wrap hero">
-    <div class="hero-grid">
-      <aside class="card profile-card">
+  <main class="container page">
+    <div class="layout">
+      <aside class="card sidebar">
         <img class="avatar" src="profile.jpg" alt="Ajay Kumar Verma">
         <h1 class="name">Ajay Kumar Verma</h1>
         <p class="role">Student • Developer • Research Enthusiast</p>
-        <p class="subtitle">Building a personal academic-style portfolio on GitHub Pages</p>
+        <p class="affiliation">Personal academic-style portfolio on GitHub Pages</p>
 
         <div class="socials">
-          <a href="https://github.com/AKV77" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="mailto:your-email@example.com">Email</a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="#cv">CV</a>
+          <a class="social-link" href="https://github.com/AKV77" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="social-link" href="mailto:your-email@example.com">Email</a>
+          <a class="social-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="social-link" href="#cv">CV / Resume</a>
         </div>
       </aside>
 
-      <section class="card hero-main" id="about">
-        <h2>About</h2>
-        <p>
-          Hello, I am <strong>Ajay Kumar Verma</strong>. Welcome to my personal website.
-          I am interested in technology, software, problem solving, and continuous learning.
-          This page is inspired by clean academic homepages and is designed to present my background,
-          interests, projects, and contact details in a simple professional format.
-        </p>
-        <p>
-          I am currently developing my skills in web development, programming, GitHub, and software tools.
-          Over time, I will use this website to share my work, achievements, resume, and important updates.
-        </p>
+      <div class="main">
+        <section class="card section" id="bio">
+          <span class="eyebrow">Bio</span>
+          <h2 class="section-title">About Me</h2>
+          <p class="lead">
+            Hello, I am <strong>Ajay Kumar Verma</strong>. I am building this website as a professional
+            academic-style homepage to present my background, interests, projects, and future work.
+          </p>
+          <p>
+            I am interested in technology, programming, software development, and continuous learning.
+            This site is designed in a clean research-homepage style, where visitors can quickly understand
+            my profile, areas of interest, recent updates, selected work, and contact details.
+          </p>
+          <p>
+            Over time, I will expand this site with stronger project descriptions, certificates,
+            achievements, a downloadable resume, and a more complete record of my technical work.
+          </p>
 
-        <div class="hero-actions">
-          <a class="button primary" href="#projects">View Projects</a>
-          <a class="button" href="#contact">Get in Touch</a>
+          <div class="hero-actions">
+            <a class="button primary" href="#featured-work">Featured Work</a>
+            <a class="button" href="#contact">Contact</a>
+          </div>
+        </section>
+
+        <div class="grid-2">
+          <section class="card section" id="interests">
+            <span class="eyebrow">Interests</span>
+            <h2 class="section-title">Research / Technical Interests</h2>
+            <ul class="list">
+              <li>Web Development</li>
+              <li>Programming and Problem Solving</li>
+              <li>Software Engineering Fundamentals</li>
+              <li>Git, GitHub, and Open Source</li>
+              <li>Continuous Technical Learning</li>
+            </ul>
+          </section>
+
+          <section class="card section" id="education">
+            <span class="eyebrow">Education</span>
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <h4>Your Degree / Program</h4>
+                <p>Your College or University Name</p>
+                <p>Year – Year</p>
+              </div>
+              <div class="timeline-item">
+                <h4>Additional Coursework / Certification</h4>
+                <p>Add relevant certifications, online courses, or training here</p>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+
+        <section class="card section" id="news">
+          <span class="eyebrow">News</span>
+          <h2 class="section-title">Recent News</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <h4>Launched my GitHub Pages website</h4>
+              <p>March 2026 — Created and published my first personal website.</p>
+            </div>
+            <div class="timeline-item">
+              <h4>Working on a stronger portfolio homepage</h4>
+              <p>Current — Improving the site layout, sections, and presentation.</p>
+            </div>
+            <div class="timeline-item">
+              <h4>Next update</h4>
+              <p>Add your next milestone here, such as a project, certificate, or internship.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card section" id="featured-work">
+          <span class="eyebrow">Featured Work</span>
+          <h2 class="section-title">Selected Work</h2>
+          <div class="publication-list">
+            <article class="publication">
+              <h4>Personal Academic-Style Website</h4>
+              <p class="muted">
+                A responsive website hosted on GitHub Pages to present my profile, interests,
+                projects, and resume in a clean professional format.
+              </p>
+              <div class="meta">
+                <span class="pill">HTML</span>
+                <span class="pill">CSS</span>
+                <span class="pill">GitHub Pages</span>
+              </div>
+            </article>
+
+            <article class="publication">
+              <h4>Featured Project / Study Topic</h4>
+              <p class="muted">
+                Replace this block with a real project, research-style write-up, or important technical work.
+              </p>
+              <div class="meta">
+                <span class="pill">Python</span>
+                <span class="pill">JavaScript</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="card section" id="projects">
+          <span class="eyebrow">Projects</span>
+          <h2 class="section-title">Projects</h2>
+          <div class="project-list">
+            <article class="project">
+              <h4>Portfolio Website</h4>
+              <p class="muted">
+                Built a personal portfolio website and published it online using GitHub Pages.
+              </p>
+              <div class="meta">
+                <span class="pill">Responsive Design</span>
+                <span class="pill">Web Basics</span>
+              </div>
+            </article>
+
+            <article class="project">
+              <h4>Project Title 2</h4>
+              <p class="muted">
+                Add a short description, tools used, and the main result or purpose of the project.
+              </p>
+              <div class="meta">
+                <span class="pill">Project</span>
+                <span class="pill">Coming Soon</span>
+              </div>
+            </article>
+
+            <article class="project">
+              <h4>Project Title 3</h4>
+              <p class="muted">
+                Use this section for coding work, mini apps, academic work, or technical experiments.
+              </p>
+              <div class="meta">
+                <span class="pill">Learning</span>
+                <span class="pill">Development</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <div class="grid-2">
+          <section class="card section" id="contact">
+            <span class="eyebrow">Contact</span>
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-grid">
+              <div><strong>Email:</strong> <a href="mailto:your-email@example.com">your-email@example.com</a></div>
+              <div><strong>GitHub:</strong> <a href="https://github.com/AKV77" target="_blank" rel="noreferrer">github.com/AKV77</a></div>
+              <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">Add your LinkedIn profile</a></div>
+              <div><strong>Location:</strong> India</div>
+            </div>
+          </section>
+
+          <section class="card section" id="cv">
+            <span class="eyebrow">CV</span>
+            <h2 class="section-title">Resume / CV</h2>
+            <p class="muted">
+              Upload your PDF file to this repository and keep the filename as:
+            </p>
+            <p><strong>Ajay_Kumar_Verma_CV.pdf</strong></p>
+            <p>
+              <a class="button" href="Ajay_Kumar_Verma_CV.pdf" target="_blank" rel="noreferrer">Open CV</a>
+            </p>
+          </section>
+        </div>
+      </div>
     </div>
-
-    <section class="sections">
-      <article class="card section-card" id="interests">
-        <h3 class="section-title">Interests</h3>
-        <ul class="list">
-          <li>Web Development</li>
-          <li>Programming and Problem Solving</li>
-          <li>Software Engineering Fundamentals</li>
-          <li>Open Source and GitHub</li>
-          <li>Technical Learning and Career Growth</li>
-        </ul>
-      </article>
-
-      <article class="card section-card" id="education">
-        <h3 class="section-title">Education</h3>
-        <div class="timeline">
-          <div class="timeline-item">
-            <h4>Your Degree / Program</h4>
-            <p>Your college or university name</p>
-            <p>Year — Year</p>
-          </div>
-          <div class="timeline-item">
-            <h4>Relevant Coursework / Certification</h4>
-            <p>Add courses, certifications, or training here</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="card section-card full" id="news">
-        <h3 class="section-title">News</h3>
-        <div class="timeline">
-          <div class="timeline-item">
-            <h4>Launched my personal GitHub Pages website</h4>
-            <p>March 2026 — Started building my professional online presence.</p>
-          </div>
-          <div class="timeline-item">
-            <h4>Working on portfolio improvements</h4>
-            <p>Add future updates here, such as projects, certificates, internships, or achievements.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="card section-card full" id="projects">
-        <h3 class="section-title">Projects</h3>
-        <div class="project-grid">
-          <section class="project">
-            <h4>Portfolio Website</h4>
-            <p class="muted">
-              A responsive personal website hosted on GitHub Pages to showcase my background,
-              skills, and work.
-            </p>
-            <div class="tags">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">GitHub Pages</span>
-            </div>
-          </section>
-
-          <section class="project">
-            <h4>Project Title 2</h4>
-            <p class="muted">
-              Replace this with your own project summary and key outcome.
-            </p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">JavaScript</span>
-            </div>
-          </section>
-
-          <section class="project">
-            <h4>Project Title 3</h4>
-            <p class="muted">
-              Add a short description, technologies used, and link to the repository if needed.
-            </p>
-            <div class="tags">
-              <span class="tag">Git</span>
-              <span class="tag">Learning</span>
-            </div>
-          </section>
-
-          <section class="project">
-            <h4>Future Work</h4>
-            <p class="muted">
-              Reserve this area for internships, research, freelance work, or academic projects.
-            </p>
-            <div class="tags">
-              <span class="tag">Coming Soon</span>
-            </div>
-          </section>
-        </div>
-      </article>
-
-      <article class="card section-card" id="contact">
-        <h3 class="section-title">Contact</h3>
-        <div class="contact-list">
-          <div><strong>Email:</strong> <a href="mailto:your-email@example.com">your-email@example.com</a></div>
-          <div><strong>GitHub:</strong> <a href="https://github.com/AKV77" target="_blank" rel="noreferrer">github.com/AKV77</a></div>
-          <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">Add your LinkedIn profile</a></div>
-          <div><strong>Location:</strong> India</div>
-        </div>
-      </article>
-
-      <article class="card section-card" id="cv">
-        <h3 class="section-title">CV / Resume</h3>
-        <p class="muted">
-          Upload your resume PDF to this repository and link it here.
-        </p>
-        <p>
-          <a class="button" href="Ajay_Kumar_Verma_CV.pdf" target="_blank" rel="noreferrer">Open CV</a>
-        </p>
-      </article>
-    </section>
   </main>
 
   <footer class="footer">
